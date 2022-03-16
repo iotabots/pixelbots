@@ -43,16 +43,18 @@ export const Pixelbots = (any) => {
     var elements = node.children
 
     for (var i = 0; i < elements.length; i++) {
+      //@ts-ignore
       elements[i].style.border = 'none'
     }
     domtoimage
-      .toPng(node)
-      .then(function (dataUrl) {
-        var img = new Image()
-        img.src = dataUrl
-        console.log('image', img)
-        myCollection.appendChild(img)
-        for (var i = 0; i < elements.length; i++) {
+    .toPng(node)
+    .then(function (dataUrl) {
+      var img = new Image()
+      img.src = dataUrl
+      console.log('image', img)
+      myCollection.appendChild(img)
+      for (var i = 0; i < elements.length; i++) {
+          //@ts-ignore
           elements[i].style.border = '.5px solid black'
         }
         setLoading(false)
@@ -75,8 +77,7 @@ export const Pixelbots = (any) => {
 
   const apply = function () {
     var inputElem = document.getElementById('input')
-    console.log('cells', cells)
-    console.log('apply', inputElem.value)
+    //@ts-ignore
     setCells(JSON.parse(inputElem.value))
     
   }
