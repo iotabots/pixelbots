@@ -1,0 +1,30 @@
+{
+  "name": "tokenomics",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prepare-deploy": "next build && next export"
+  },
+  "dependencies": {
+    "@ethersproject/units": "^5.5.0",
+    "@iotabots/components": "^0.0.48",
+    "dom-to-image": "^2.6.0",
+    "next": "12.0.8",
+    "node-sass": "^6.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-jss": "^10.9.0",
+    "web3": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.10",
+    "@types/react": "17.0.38",
+    "eslint": "8.7.0",
+    "eslint-config-airbnb": "^19.0.1",
+    "eslint-config-next": "12.0.8",
+    "typescript": "4.5.4"
+  }
+}
