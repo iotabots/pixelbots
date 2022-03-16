@@ -62,6 +62,25 @@ export const Pixelbots = (any) => {
       })
   }
 
+  const save_as_json = function () {
+    console.log('save_as_json')
+    var dataStr =
+      'data:text/json;charset=utf-8,' +
+      encodeURIComponent(JSON.stringify(cells))
+    var dlAnchorElem = document.getElementById('downloadAnchorElem')
+    dlAnchorElem.setAttribute('href', dataStr)
+    dlAnchorElem.setAttribute('download', 'pixelbot.json')
+    dlAnchorElem.click()
+  }
+
+  const apply = function () {
+    var inputElem = document.getElementById('input')
+    console.log('cells', cells)
+    console.log('apply', inputElem.value)
+    setCells(JSON.parse(inputElem.value))
+    
+  }
+
   return (
     <>
       <Section>
@@ -112,9 +131,19 @@ export const Pixelbots = (any) => {
               }}
             >
               {/* eslint-disable-next-line */}
-              <Button disabled={loading} onClick={() => save()}>Save</Button>
+              <Button disabled={loading} onClick={() => save()}>
+                Save
+              </Button>
+              <Button disabled={loading} onClick={() => save_as_json()}>
+              save_as_json
+              </Button>
               <br />
-              <div id="my-collection"></div>
+              <div id='my-collection'></div>
+              <a id="downloadAnchorElem" style={{display:'none'}}></a>
+              <input id="input" />
+              <Button disabled={loading} onClick={() => apply()}>
+              apply
+              </Button>
               {/* {chatString} */}
             </p>
           </div>
