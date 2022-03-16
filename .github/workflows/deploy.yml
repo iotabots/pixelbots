@@ -15,15 +15,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Go To Frontend
-      run: cd frontend
     - name: Install Packages
-      run: yarn install
+      run: cd frontend && yarn install
     - name: Build page
-      run: yarn prepare-deploy
+      run: cd frontend && yarn prepare-deploy
     - name: Deploy to gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out
+        publish_dir: ./frontend/out
         cname: pixelbots.iotabots.io
